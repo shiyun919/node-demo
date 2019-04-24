@@ -56,7 +56,8 @@ window.jQuery.ajax = function(options){
 	let request = new XMLHttpRequest()
 	for(let key in headers){
 		let value = headers[key]
-		request.setRequestHeader(key, value)
+		console.log(key,value)
+		request.setRequestHeader(key,value)
 	}
 	request.open(method, url)
 	request.onreadystatechange = function(){
@@ -75,7 +76,7 @@ window.jQuery.ajax = function(options){
 
 myButton.addEventListener('click', (e)=>{
      window.jQuery.ajax({
-     	url:'/xxx',
+     	url:'/frank',
 	method:'get',
 	headers:{
 		'content-type':'application/x-www-form-urlencoded',
