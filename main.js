@@ -26,7 +26,7 @@
 //	    }else if(request.status >= 400){
 //	            console.log('说明请求失败')
 //	    }
-//        }
+//         }
 //	}
 //	request.open('GET','/xxx')   //配置request的请求类型及路径
 //	request.send()	
