@@ -51,8 +51,13 @@ window.jQuery.ajax = function(options){
 	let body = options.body
 	let successFn = options.successFn
 	let failFn = options.failFn
+	let headers = options.headers
 	
 	let request = new XMLHttpRequest()
+	for(let key in headers){
+		let value = headers[key]
+		request.setRequestHeader(key, value)
+	}
 	request.open(method, url)
 	request.onreadystatechange = function(){
 	    if(request.readyState === 4){
@@ -71,9 +76,13 @@ window.jQuery.ajax = function(options){
 myButton.addEventListener('click', (e)=>{
      window.jQuery.ajax({
      	url:'/xxx',
-	    method:'get',
-	    successFn: function(x){console.log(x)},
-	    failFn:function(x){console.log(x)}     
+	method:'get',
+	headers:{
+		'content-type':'application/x-www-form-urlencoded',
+		'frank':'18'
+	},
+	successFn: function(x){console.log(x)},
+	failFn:function(x){console.log(x)}     
      })
 
 })
