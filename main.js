@@ -7,12 +7,12 @@ window.jQuery = function(){}
 
 window.$ = window.jQuery
 
-window.Promise = function(fn){
+//window.Promise = function(fn){
 	//...
-	return {
-		then: function(){}
-	}
-}
+//	return {
+//		then: function(){}
+//	}
+//}
 
 window.jQuery.ajax = function({url, method, body, headers}){
 	return new Promise(function(resolve, reject){
@@ -49,7 +49,7 @@ myButton.addEventListener('click', (e)=>{
 		}  
 	})
 	Promise.then(
-		function(responseText){console.log(responseText)},
+		function(text){console.log(text)},
 		function(request){console.log(request)}
 	)
 
@@ -60,20 +60,3 @@ myButton.addEventListener('click', (e)=>{
 
 
 
-//引入jQuery库，按Promise规范写AJAX
-
-//function success(responseText){
-//	console.log(responseText)
-//}
-
-//function fail(request){
-//	console.log(request)
-//}
-
-//myButton.addEventListener('click', function(){
-//	$.ajax({
-//	  url:'/frank',
-//	  method:'get',
-//	}).then(success,fail)
-
-//})
