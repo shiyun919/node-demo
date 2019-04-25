@@ -45,21 +45,16 @@ window.jQuery = function(){}
 
 window.$ = window.jQuery
 
-window.jQuery.ajax = function(options){
-	let url = options.url
-	let method = options.method
-	let body = options.body
-	let successFn = options.successFn
-	let failFn = options.failFn
-	let headers = options.headers
-	
+window.jQuery.ajax = function({url, method, body, successFn, failFn, headers}){
+		
 	let request = new XMLHttpRequest()
+	request.open(method, url)
 	for(let key in headers){
 		let value = headers[key]
 		console.log(key,value)
 		request.setRequestHeader(key,value)
 	}
-	request.open(method, url)
+
 	request.onreadystatechange = function(){
 	    if(request.readyState === 4){
                 if(request.status >= 200 && request.status < 300){
@@ -76,7 +71,7 @@ window.jQuery.ajax = function(options){
 
 myButton.addEventListener('click', (e)=>{
      window.jQuery.ajax({
-     	url:'/frank',
+     	url:'/xxx',
 	method:'get',
 	headers:{
 		'content-type':'application/x-www-form-urlencoded',
@@ -87,3 +82,26 @@ myButton.addEventListener('click', (e)=>{
      })
 
 })
+
+
+
+
+
+
+//引入jQuery库，按Promise规范封装
+
+//function success(responseText){
+//	console.log(responseText)
+//}
+
+//function fail(request){
+//	console.log(request)
+//}
+
+//myButton.addEventListener('click', function(){
+//	$.ajax({
+//	  url:'/frank',
+//	  method:'get',
+//	}).then(success,fail)
+
+//})
